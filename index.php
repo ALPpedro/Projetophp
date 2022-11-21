@@ -32,10 +32,12 @@ if( isset ($_POST ) && !empty($_POST) ){
 <h3>Monte sua prova de forma simples e rápida</h3></div> 
 </div>
 
-<form action="./index.php" method="post" class=" needs-validation" novalidate>
-    <div class="col-md-4">
-    <label class="form-label">Pergunta</label>
-    <textarea class="form-control" name="pergunta" required></textarea>
+<form action="./index.php" method="post" class=" needs-validation" style="width: 100%; justify-content: center; display: flex;" novalidate>
+<div style="width: 70%;">
+    <div >
+    <label class="form-label">Pergunta:</label>
+    <textarea class="form-control" name="pergunta" style=" margin-left: 3%; width: 97%;" required></textarea>
+
     <div class="valid-feedback">
         Validado!
     </div>
@@ -43,64 +45,40 @@ if( isset ($_POST ) && !empty($_POST) ){
         Informe uma pergunta
     </div>
     </div>
-
-    <div class="col-md-4">
-    <label class="form-label">Pergunta</label>
-    <textarea class="form-control" name="pergunta" required></textarea>
-    <div class="valid-feedback">
-        Validado!
-    </div>
-    <div class="invalid-feedback">
-        Informe uma pergunta
-    </div>
-    </div>
-    <div class="form-check">
-    <input type="radio" class="form-check-input" id="validationFormCheck" name="correta" required>
-    <label class="form-check-label" for="validationFormCheck">A)</label>
-    <input type="text" name="A" />
+    <div class="form-check" style="display: flex;">
+    <input type="radio" class="form-check-input" style="margin-top: 10px;" id="validationFormCheck" name="correta" value="A" required>
+    <label class="form-check-label" style="margin-top: 5px;" for="validationFormCheck">A)</label>
+    <input class="form-control" style="margin-left: 5px;" type="text" name="A" required/>
   </div>
-  <div class="form-check mb-3">
-    <input type="radio" class="form-check-input" id="validationFormCheck2" name="correta" required>
-    <label class="form-check-label" for="validationFormCheck2">Or toggle this other radio</label>
-    <div class="invalid-feedback">More example invalid feedback text</div>
+    <div class="form-check" style="display: flex;">
+    <input type="radio" class="form-check-input" style="margin-top: 10px;" id="validationFormCheck2" name="correta" value="B" required>
+    <label class="form-check-label" for="validationFormCheck2" style="margin-top: 5px;">B)</label>
+    <input class="form-control" style="margin-left: 5px;" type="text" name="B"required />
   </div>
-
-
-
+    <div class="form-check" style="display: flex;">
+    <input type="radio" class="form-check-input" style="margin-top: 10px;" id="validationFormCheck3" name="correta" value="C" required>
+    <label class="form-check-label" for="validationFormCheck3" style="margin-top: 5px;">C)</label>
+    <input class="form-control" style="margin-left: 5px;" type="text" name="C"required />
+  </div>
+    <div class="form-check" style="display: flex;">
+    <input type="radio" class="form-check-input" style="margin-top: 10px;" id="validationFormCheck4" name="correta" value="D" required>
+    <label class="form-check-label" style="margin-top: 5px;" for="validationFormCheck4">D)</label>
+    <input class="form-control" style="margin-left: 5px;" type="text" name="D" required />
+  </div>
+    <div class="form-check" style="display: flex;">
+    <input type="radio" class="form-check-input" style="margin-top: 10px;" id="validationFormCheck4" name="correta" value="E" required>
+    <label class="form-check-label" style="margin-top: 5px;" for="validationFormCheck4">E)</label>
+    <input class="form-control" style="margin-left: 5px;" type="text" name="E" required />
+  </div>
 <br><br>
 
 <label>A)</label>
 <input type="radio" name="correta" value="A" />
 
-
-<br><br>
-
-<label>B)</label>
-<input  type="radio" name="correta" value="B" />
-<input type="text" name="B" />
-
-<br><br>
-
-<label>C)</label>
-<input type="radio" name="correta" value="C" />
-<input type="text" name="C" />
-
-<br><br>
-
-<label>D)</label>
-<input type="radio" name="correta" value="D" />
-<input type="text" name="D" />
-
-<br><br>
-
-<label>E)</label>
-<input type="radio" name="correta" value="E" />
-<input type="text" name="E" />
-
 <br><br>
 
 <button type="submit" class="bg-primary">Salvar Pergunta</button>
-
+</div>
 </form>
 
 <?php
