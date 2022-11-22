@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
-<body style="margin: 0px; padding: 0px; background-color: rgb(196, 196, 196)" >
+<body style="margin: 0px; padding: 0px; background-color: rgb(83, 155, 155);" >
 <?php 
 
 include "conexao.php" ;
@@ -33,10 +33,10 @@ if( isset ($_POST ) && !empty($_POST) ){
 </div>
 
 <form action="./index.php" method="post" class=" needs-validation" style="width: 100%; justify-content: center; display: flex;" novalidate>
-<div style="width: 70%;">
+<div style="width: 70%">
     <div >
-    <label class="form-label">Pergunta:</label>
-    <textarea class="form-control" name="pergunta" style=" margin-left: 3%; width: 97%;" required></textarea>
+    <label class="form-label" style="margin-left: 20%; font-size: 30px; font-weight: 400;">Pergunta:</label>
+    <textarea class="form-control" name="pergunta" style="width: 80%;" required></textarea>
 
     <div class="valid-feedback">
         Validado!
@@ -45,39 +45,37 @@ if( isset ($_POST ) && !empty($_POST) ){
         Informe uma pergunta
     </div>
     </div>
-    <div class="form-check" style="display: flex;">
+    <div class="form-check" style="display: flex; margin-top: 2rem;">
     <input type="radio" class="form-check-input" style="margin-top: 10px;" id="validationFormCheck" name="correta" value="A" required>
     <label class="form-check-label" style="margin-top: 5px;" for="validationFormCheck">A)</label>
     <input class="form-control" style="margin-left: 5px;" type="text" name="A" required/>
   </div>
-    <div class="form-check" style="display: flex;">
+    <div class="form-check" style="display: flex; margin-top: 2rem;">
     <input type="radio" class="form-check-input" style="margin-top: 10px;" id="validationFormCheck2" name="correta" value="B" required>
     <label class="form-check-label" for="validationFormCheck2" style="margin-top: 5px;">B)</label>
     <input class="form-control" style="margin-left: 5px;" type="text" name="B"required />
   </div>
-    <div class="form-check" style="display: flex;">
+    <div class="form-check" style="display: flex; margin-top: 2rem;">
     <input type="radio" class="form-check-input" style="margin-top: 10px;" id="validationFormCheck3" name="correta" value="C" required>
     <label class="form-check-label" for="validationFormCheck3" style="margin-top: 5px;">C)</label>
     <input class="form-control" style="margin-left: 5px;" type="text" name="C"required />
   </div>
-    <div class="form-check" style="display: flex;">
+    <div class="form-check" style="display: flex; margin-top: 2rem;">
     <input type="radio" class="form-check-input" style="margin-top: 10px;" id="validationFormCheck4" name="correta" value="D" required>
     <label class="form-check-label" style="margin-top: 5px;" for="validationFormCheck4">D)</label>
     <input class="form-control" style="margin-left: 5px;" type="text" name="D" required />
   </div>
-    <div class="form-check" style="display: flex;">
+    <div class="form-check" style="display: flex; margin-top: 2rem;">
     <input type="radio" class="form-check-input" style="margin-top: 10px;" id="validationFormCheck4" name="correta" value="E" required>
     <label class="form-check-label" style="margin-top: 5px;" for="validationFormCheck4">E)</label>
     <input class="form-control" style="margin-left: 5px;" type="text" name="E" required />
   </div>
 <br><br>
-
-<label>A)</label>
-<input type="radio" name="correta" value="A" />
+ 
 
 <br><br>
 
-<button type="submit" class="bg-primary">Salvar Pergunta</button>
+<button type="submit" class="button" style="background-color: green; color: white; font-weight: 700; font-size: 20px;">Salvar Pergunta</button>
 </div>
 </form>
 
