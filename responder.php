@@ -9,41 +9,35 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body style="margin: 0px; padding: 0px; background-color: rgb(83, 155, 155);" >
-<?php 
 
-include "conexao.php" ;
 
-if( isset ($_POST ) && !empty($_POST) ){
-    $pergunta = $_POST["pergunta"];
-    $a = $_POST["A"];
-    $b = $_POST["B"];
-    $c = $_POST["C"];
-    $d = $_POST["D"];
-    $e = $_POST["E"];
-    $correta = $_POST["correta"];
-
-    $query = "insert into questoes (pergunta,a,b,c,d,e,correta) ";
-    $query = $query." values('$pergunta','$a','$b','$c','$d','$e','$correta')";
-    $resultado = mysqli_query($conexao, $query);
-}
-?>
 
 <div class="topo"> <div class="texto"><h1>Bem Vindo a Provas Rápidas</h1>
 <h3>Responda todas as questões</h3></div> 
 </div>
 
-<form action="./index.php" method="post" class=" needs-validation" style="width: 100%; justify-content: center; display: flex;" novalidate>
-<div style="width: 70%">
-    <div >
-    <label class="form-label" style="margin-left: 20%; font-size: 30px; font-weight: 400;">Pergunta:</label>
-    <textarea class="form-control" name="pergunta" style="width: 80%;" required></textarea>
 
-    <div class="valid-feedback">
-        Validado!
-    </div>
-    <div class="invalid-feedback">
-        Informe uma pergunta
-    </div>
+<div style="width: 70%">
+<?php
+include "conexao.php" ;
+    $query = "select * from questoes ORDER BY RAND() limit 15";
+    $resultado = mysqli_query($conexao, $query);
+
+    while($linha = mysqli_fetch_array($resultado)){
+        ?>
+            <div style="width:100%; border:1px solid; margin-top: 4rem">
+                
+                <h3> <?php echo $linha["a"]; ?> </h3>
+                <h3> <?php echo $linha["b"]; ?> </h3>
+                <h3> <?php echo $linha["c"]; ?> </h3>
+                <h3> <?php echo $linha["d"]; ?> </h3>
+                <h3> <?php echo $linha["e"]; ?> </h3>
+            </div>
+    
+    <div >
+      
+    <label class="form-label" style="margin-left: 20%; font-size: 30px; font-weight: 400;">Pergunta:</label>
+    <h1> <?php echo $linha["pergunta"]; ?> </h1>
     </div>
     <div class="form-check" style="display: flex; margin-top: 2rem;">
     <input type="radio" class="form-check-input" style="margin-top: 10px;" id="validationFormCheck" name="correta" value="A" required>
@@ -71,39 +65,24 @@ if( isset ($_POST ) && !empty($_POST) ){
     <input class="form-control" style="margin-left: 5px;" type="text" name="E" required />
   </div>
 <br><br>
+
+<?php
+    }
+?>
  
 
 <br><br>
 
 
-<button type="submit" class="button" style="background-color: green; color: white; font-weight: 700; font-size: 40px; width: 100%; height: 100px">Salvar Pergunta</button>
+<button type="submit" class="button" style="background-color: green; color: white; font-weight: 700; font-size: 40px; width: 100%; height: 100px">Enviar Resposta</button>
 
 </div>
-</form>
 <div class="fim">
 <h1>Já Acabou o formulario? agora é só deixar os alunos responderem:</h1>
-<a href="responder.php" > <button type="submit" class="button" style="background-color: blue; color: white; width: 70%; font-weight: 700; font-size: 20px; font-size: 40px;  height: 100px; margin-left:15%; margin-right:20%">Responder Perguntas</button>
-</a>
+<button type="submit" class="button" style="background-color: blue; color: white; width: 70%; font-weight: 700; font-size: 20px; font-size: 40px;  height: 100px; margin-left:15%; margin-right:20%">Responder Perguntas</button>
 </div>
 
-<?php
-    $query = "select * from questoes order by id desc";
-    $resultado = mysqli_query($conexao, $query);
 
-    while($linha = mysqli_fetch_array($resultado)){
-        ?>
-            <div style="width:100%; border:1px solid; margin-top: 4rem">
-                <h1> <?php echo $linha["pergunta"]; ?> </h1>
-                <h3> <?php echo $linha["a"]; ?> </h3>
-                <h3> <?php echo $linha["b"]; ?> </h3>
-                <h3> <?php echo $linha["c"]; ?> </h3>
-                <h3> <?php echo $linha["d"]; ?> </h3>
-                <h3> <?php echo $linha["e"]; ?> </h3>
-                <h3><?php echo $linha["correta"]; ?></h3>
-            </div>
-        <?php
-    }
-?>
 <script>
     (function () {
   'use strict'
